@@ -3433,6 +3433,24 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text"..test, text)  
 end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
+return false  
+end  
+end
+if text then  
+local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
+database:set(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text1"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
+return false  
+end  
 end
 if text then  
 local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
@@ -3451,9 +3469,13 @@ end
 end
 if text then
 local Text = database:get(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text"..text)   
-if Text then 
+local Text1 = database:get(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text1"..text)   
+local Text2 = database:get(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text2"..text)   
+if Text or Text1 or Text2 then 
 local texting = {
 Text,
+Text1,
+Text2
 }
 Textes = math.random(#texting)
 send(msg.chat_id_, msg.id_,texting[Textes])
@@ -6135,10 +6157,7 @@ database:set(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.ch
 database:set(bot_id.."DevMaYor:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Video"..text..msg.chat_id_)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:File"..text..msg.chat_id_)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Audio"..text..msg.chat_id_)
 database:sadd(bot_id.."DevMaYor:List:Manager"..msg.chat_id_.."", text)
