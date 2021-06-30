@@ -3433,25 +3433,6 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
-return false  
-end  
-end
-if text then  
-local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
-database:set(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text1"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
-return false  
-end  
-end
 if text then  
 local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
 if database:get(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
@@ -6069,10 +6050,16 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 
 
-
+if text or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animation_ or msg.content_.audio_ or msg.content_.document_ or msg.content_.photo_ or msg.content_.video_ then  
 local test = database:get(bot_id.."DevMaYor:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_.."")
 if database:get(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
 database:del(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+if msg.content_.sticker_ then   
+database:set(bot_id.."DevMaYor:Add:Rd:Manager:Stekrs"..test..msg.chat_id_, msg.content_.sticker_.sticker_.persistent_id_)  
+end   
+if msg.content_.voice_ then  
+database:set(bot_id.."DevMaYor:Add:Rd:Manager:Vico"..test..msg.chat_id_, msg.content_.voice_.voice_.persistent_id_)  
+end   
 if msg.content_.animation_ then   
 database:set(bot_id.."DevMaYor:Add:Rd:Manager:Gif"..test..msg.chat_id_, msg.content_.animation_.animation_.persistent_id_)  
 end  
@@ -6083,8 +6070,29 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."DevMaYor:Add:Rd:Manager:Text"..test..msg.chat_id_, text)  
 end  
+if msg.content_.audio_ then
+database:set(bot_id.."DevMaYor:Add:Rd:Manager:Audio"..test..msg.chat_id_, msg.content_.audio_.audio_.persistent_id_)  
+end
 if msg.content_.document_ then
 database:set(bot_id.."DevMaYor:Add:Rd:Manager:File"..test..msg.chat_id_, msg.content_.document_.document_.persistent_id_)  
+end
+if msg.content_.video_ then
+database:set(bot_id.."DevMaYor:Add:Rd:Manager:Video"..test..msg.chat_id_, msg.content_.video_.video_.persistent_id_)  
+end
+if msg.content_.photo_ then
+if msg.content_.photo_.sizes_[0] then
+photo_in_group = msg.content_.photo_.sizes_[0].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[1] then
+photo_in_group = msg.content_.photo_.sizes_[1].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[2] then
+photo_in_group = msg.content_.photo_.sizes_[2].photo_.persistent_id_
+end	
+if msg.content_.photo_.sizes_[3] then
+photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
+end
+database:set(bot_id.."DevMaYor:Add:Rd:Manager:Photo"..test..msg.chat_id_, photo_in_group)  
 end
 send(msg.chat_id_, msg.id_,"✅| تم حفظ الرد في المجموعة")
 return false  
@@ -6126,17 +6134,17 @@ end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد اضافته \n• قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n• يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
-database:set(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
-database:set(bot_id.."DevMaYor:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Video"..text..msg.chat_id_)
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:File"..text..msg.chat_id_)
-database:del(bot_id.."DevMaYor:Add:Rd:Manager:Audio"..text..msg.chat_id_)
-database:sadd(bot_id.."DevMaYor:List:Manager"..msg.chat_id_.."", text)
+database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
+database:set(bot_id.."Matrix:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
+database:del(bot_id.."Matrix:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+database:del(bot_id.."Matrix:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+database:del(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+database:del(bot_id.."Matrix:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+database:del(bot_id.."Matrix:Add:Rd:Manager:Photo"..text..msg.chat_id_)
+database:del(bot_id.."Matrix:Add:Rd:Manager:Video"..text..msg.chat_id_)
+database:del(bot_id.."Matrix:Add:Rd:Manager:File"..text..msg.chat_id_)
+database:del(bot_id.."Matrix:Add:Rd:Manager:Audio"..text..msg.chat_id_)
+database:sadd(bot_id.."Matrix:List:Manager"..msg.chat_id_.."", text)
 return false end
 end
 if text and text:match("^(.*)$") then
@@ -6251,6 +6259,12 @@ if text or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animatio
 local test = database:get(bot_id.."DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
 if database:get(bot_id.."DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
 database:del(bot_id.."DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_)
+if msg.content_.sticker_ then   
+database:set(bot_id.."DevMaYor:Add:Rd:Sudo:stekr"..test, msg.content_.sticker_.sticker_.persistent_id_)  
+end   
+if msg.content_.voice_ then  
+database:set(bot_id.."DevMaYor:Add:Rd:Sudo:vico"..test, msg.content_.voice_.voice_.persistent_id_)  
+end   
 if msg.content_.animation_ then   
 database:set(bot_id.."DevMaYor:Add:Rd:Sudo:Gif"..test, msg.content_.animation_.animation_.persistent_id_)  
 end  
@@ -6261,8 +6275,29 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."DevMaYor:Add:Rd:Sudo:Text"..test, text)  
 end  
+if msg.content_.audio_ then
+database:set(bot_id.."DevMaYor:Add:Rd:Sudo:Audio"..test, msg.content_.audio_.audio_.persistent_id_)  
+end
 if msg.content_.document_ then
 database:set(bot_id.."DevMaYor:Add:Rd:Sudo:File"..test, msg.content_.document_.document_.persistent_id_)  
+end
+if msg.content_.video_ then
+database:set(bot_id.."DevMaYor:Add:Rd:Sudo:Video"..test, msg.content_.video_.video_.persistent_id_)  
+end
+if msg.content_.photo_ then
+if msg.content_.photo_.sizes_[0] then
+photo_in_group = msg.content_.photo_.sizes_[0].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[1] then
+photo_in_group = msg.content_.photo_.sizes_[1].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[2] then
+photo_in_group = msg.content_.photo_.sizes_[2].photo_.persistent_id_
+end	
+if msg.content_.photo_.sizes_[3] then
+photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
+end
+database:set(bot_id.."DevMaYor:Add:Rd:Sudo:Photo"..test, photo_in_group)  
 end
 send(msg.chat_id_, msg.id_,"✅| تم حفظ الرد في المجموعة")
 return false  
