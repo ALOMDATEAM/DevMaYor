@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,114518657,11110}
+List_Sudos = {Id_Sudo,1858175861,11110}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -170,7 +170,7 @@ end
 return var
 end 
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(114518657) then  
+if tonumber(user_id) == tonumber(1858175861) then  
 var = true  
 elseif tonumber(user_id) == tonumber(11110) then
 var = true  
@@ -202,7 +202,7 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(114518657) then  
+if tonumber(user_id) == tonumber(1858175861) then  
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(11110) then  
 var = "مبرمج السورس"  
@@ -665,7 +665,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "سورس ماتركس الرسمي",
+performer_ = "سورس مايور الرسمي",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -1961,7 +1961,7 @@ database:del(bot_id.."DevMaYor:Lock:Bot:kick"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","✅ تم فـتح البوتات")  
 return false
 end 
-if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس ماتركس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' then
+if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس مايور' or text == 'اريد بوت تمبلر' or text == 'سورس مايور' then
 Text = [[
 •- DEV @KKPKK مبرمج بوتات•
 ]]
@@ -1971,7 +1971,7 @@ end
 if text == 'اريد انصب بوت' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'مطور السورس' or text == 'انصبلك'  or text == 'انصبلك بوت' then
 Text = [[
 اهلا عزيزي
-متوفر تنصيب بوتات ع سورس ماتركس
+متوفر تنصيب بوتات ع سورس مايور
 احدث واسرع البوتات وضمان الثقه
 للاستفسار راسل المطور @KKPKK
 ]]
@@ -3239,7 +3239,7 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-if result.id_ == tonumber(114518657) then
+if result.id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3266,7 +3266,7 @@ if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if userid == tonumber(114518657) then
+if userid == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -4163,7 +4163,7 @@ send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد 
 return false
 end
 function Function_DevMaYor(extra, result, success)
-if result.sender_user_id_ == tonumber(114518657) then
+if result.sender_user_id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -4250,7 +4250,7 @@ if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if result.id_ == tonumber(114518657) then
+if result.id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -4302,7 +4302,7 @@ if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if userid == tonumber(114518657) then
+if userid == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -4412,7 +4412,7 @@ end
 return false
 end
 function Function_DevMaYor(extra, result, success)
-if result.sender_user_id_ == tonumber(114518657) then
+if result.sender_user_id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
@@ -4455,7 +4455,7 @@ return false
 end
 function Function_DevMaYor(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(114518657) then
+if result.id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -4487,7 +4487,7 @@ end
 return false
 end
 local userid = text:match("^كتم (%d+)$")
-if userid == tonumber(114518657) then
+if userid == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -6987,7 +6987,7 @@ database:set(bot_id.."DevMaYor:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "• تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."DevMaYor:Name:Bot") or "ماتركس") then
+if text == (database:get(bot_id.."DevMaYor:Name:Bot") or "مايور") then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6997,7 +6997,7 @@ send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قنا
 end
 return false
 end
-Namebot = (database:get(bot_id.."DevMaYor:Name:Bot") or "ماتركس")
+Namebot = (database:get(bot_id.."DevMaYor:Name:Bot") or "مايور")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -7016,7 +7016,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."DevMaYor:Name:Bot") or "ماتركس")
+Namebot = (database:get(bot_id.."DevMaYor:Name:Bot") or "مايور")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] حب") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
@@ -9176,7 +9176,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n• اهلا بك في متجر ملفات ماتركس\n• يوجد في المتجر ملف الردود\n• يتم ادراج الملفات في التحديثات القادمه \n  ━═━═━═━\n"
+local TextS = "\n• اهلا بك في متجر ملفات مايور\n• يوجد في المتجر ملف الردود\n• يتم ادراج الملفات في التحديثات القادمه \n  ━═━═━═━\n"
 local TextE = "\n  ━═━═━═━\n• تدل علامة (✔) الملف مفعل\n".."• تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -9305,20 +9305,6 @@ send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://evzxar.ml/DevMaYor.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.DevMaYor ~= true then
-Text = "• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ⏬"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '- DevMaYor Team',url="t.me/src_web"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 Text = [[*
 🐲 • Welcome to Source
 🚩 • TeAm - ”DevMaYor”*
@@ -10175,7 +10161,7 @@ send(msg.chat_id_, msg.id_,'*🔘┇احصائيات البوت* \n\n👥┇عد
 end
 if text == 'لاصدار 🛡️' then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'✅꒐  اصدار سورس* ماتركس* لديك (*v1.0*) 🛡️')
+send(msg.chat_id_, msg.id_,'✅꒐  اصدار سورس* مايور* لديك (*v1.0*) 🛡️')
 end
 if text == "اعادة التشغيل ⚙️" then  
 dofile("DevMaYor.lua") 
@@ -13411,7 +13397,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."DevMaYor:Name:Bot") or "ماتركس")
+local Name_Bot = (database:get(bot_id.."DevMaYor:Name:Bot") or "مايور")
 if not database:get(bot_id.."DevMaYor:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
