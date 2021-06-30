@@ -3451,13 +3451,9 @@ end
 end
 if text then
 local Text = database:get(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text"..text)   
-local Text1 = database:get(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text1"..text)   
-local Text2 = database:get(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text2"..text)   
-if Text or Text1 or Text2 then 
+if Text then 
 local texting = {
 Text,
-Text1,
-Text2
 }
 Textes = math.random(#texting)
 send(msg.chat_id_, msg.id_,texting[Textes])
