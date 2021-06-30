@@ -3433,24 +3433,6 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text"..test, text)  
 end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
-return false  
-end  
-end
-if text then  
-local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
-database:set(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
-if text then   
-text = text:gsub('"',"") 
-text = text:gsub('"',"") 
-text = text:gsub("`","") 
-text = text:gsub("*","") 
-database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text1"..test, text)  
-end  
-send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
-return false  
-end  
 end
 if text then  
 local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
@@ -7005,7 +6987,7 @@ local namebot = {
 'الو الو رد مخنوك',
 'ها يحلو كول',
 'عمري الحلو',
-'صاعد اتصال ويا الحب دقيقة وجيك 😘??',
+'صاعد اتصال ويا الحب دقيقة وجيك 😘💘',
 'مشغول حالياً 🌚🌸',
 'لابسك لتلح',
 " هايروحي؟ "..Namebot,
