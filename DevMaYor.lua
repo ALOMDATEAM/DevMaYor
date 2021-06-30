@@ -6195,31 +6195,31 @@ end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr)
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)   
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
-database:sadd(bot_id.."DevMaYor3:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
 end
