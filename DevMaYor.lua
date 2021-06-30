@@ -6184,6 +6184,14 @@ end
 end
 if text and not database:get(bot_id.."DevMaYor:Reply:Manager"..msg.chat_id_) then
 if not database:sismember(bot_id..'DevMaYor:Spam:Group'..msg.sender_user_id_,text) then
+local anemi = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+local veico = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+local stekr = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+local Text = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+local photo = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Photo"..text..msg.chat_id_)
+local video = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Video"..text..msg.chat_id_)
+local document = database:get(bot_id.."DevMaYor:Add:Rd:Manager:File"..text..msg.chat_id_)
+local audio = database:get(bot_id.."DevMaYor:Add:Rd:Manager:Audio"..text..msg.chat_id_)
 if Text then 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
 local NumMsg = database:get(bot_id..'DevMaYor:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
@@ -7005,7 +7013,7 @@ local namebot = {
 'الو الو رد مخنوك',
 'ها يحلو كول',
 'عمري الحلو',
-'صاعد اتصال ويا الحب دقيقة وجيك 😘??',
+'صاعد اتصال ويا الحب دقيقة وجيك 😘💘',
 'مشغول حالياً 🌚🌸',
 'لابسك لتلح',
 " هايروحي؟ "..Namebot,
@@ -9301,7 +9309,7 @@ keyboard.inline_keyboard = {
 {text = '🐉 • TeAM DevMaYor .',url="https://t.me/src_web"},
 },
 {
-{text = '📁┇DevMaYor Files .',url="https://t.me/infoo_DevMaYor"},
+{text = '📁┇DevMaYor Files .',url="https://t.me/UUI33U"},
 },
 {
 {text = '📮 • Bot TwisL',url="t.me/U41bot"},
