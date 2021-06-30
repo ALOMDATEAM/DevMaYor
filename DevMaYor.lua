@@ -6157,7 +6157,10 @@ database:set(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.ch
 database:set(bot_id.."DevMaYor:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+database:del(bot_id.."DevMaYor:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+database:del(bot_id.."DevMaYor:Add:Rd:Manager:Photo"..text..msg.chat_id_)
+database:del(bot_id.."DevMaYor:Add:Rd:Manager:Video"..text..msg.chat_id_)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:File"..text..msg.chat_id_)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Audio"..text..msg.chat_id_)
 database:sadd(bot_id.."DevMaYor:List:Manager"..msg.chat_id_.."", text)
@@ -7002,7 +7005,7 @@ local namebot = {
 'الو الو رد مخنوك',
 'ها يحلو كول',
 'عمري الحلو',
-'صاعد اتصال ويا الحب دقيقة وجيك 😘💘',
+'صاعد اتصال ويا الحب دقيقة وجيك 😘??',
 'مشغول حالياً 🌚🌸',
 'لابسك لتلح',
 " هايروحي؟ "..Namebot,
