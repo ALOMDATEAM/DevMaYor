@@ -3433,6 +3433,25 @@ text = text:gsub("`","")
 text = text:gsub("*","") 
 database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text"..test, text)  
 end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الاول ارسل الرد الثاني")
+return false  
+end  
+end
+if text then  
+local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
+database:set(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."botss:DevMaYor:Add:Rd:Sudo:Text1"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"تم حفظ الرد الثاني ارسل الرد الثالث")
+return false  
+end  
+end
 if text then  
 local test = database:get(bot_id.."botss:DevMaYor:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
 if database:get(bot_id.."botss:DevMaYor:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
@@ -6134,17 +6153,10 @@ end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد اضافته \n• قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n• يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
-database:set(bot_id.."Matrix:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
-database:set(bot_id.."Matrix:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:del(bot_id.."Matrix:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-database:del(bot_id.."Matrix:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."Matrix:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-database:del(bot_id.."Matrix:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."Matrix:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."Matrix:Add:Rd:Manager:Video"..text..msg.chat_id_)
-database:del(bot_id.."Matrix:Add:Rd:Manager:File"..text..msg.chat_id_)
-database:del(bot_id.."Matrix:Add:Rd:Manager:Audio"..text..msg.chat_id_)
-database:sadd(bot_id.."Matrix:List:Manager"..msg.chat_id_.."", text)
+database:set(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
+database:set(bot_id.."DevMaYor:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
+database:del(bot_id.."DevMaYor:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+database:sadd(bot_id.."DevMaYor:List:Manager"..msg.chat_id_.."", text)
 return false end
 end
 if text and text:match("^(.*)$") then
@@ -6183,31 +6195,31 @@ end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr)
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)   
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
-database:sadd(bot_id.."DevMaYor:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Matrix:Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
 end
