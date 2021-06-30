@@ -6156,6 +6156,7 @@ send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد ا
 database:set(bot_id.."DevMaYor:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
 database:set(bot_id.."DevMaYor:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:del(bot_id.."DevMaYor:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+database:del(bot_id.."DevMaYor:Add:Rd:Manager:File"..text..msg.chat_id_)
 database:sadd(bot_id.."DevMaYor:List:Manager"..msg.chat_id_.."", text)
 return false end
 end
@@ -13476,7 +13477,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","?? 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇ نسبة الرجوله لـ : *'..text..'*'
 keyboard = {} 
