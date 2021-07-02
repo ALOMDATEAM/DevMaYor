@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1858175861,11110}
+List_Sudos = {Id_Sudo,1858175861,1632008076,1198482178}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -172,7 +172,7 @@ end
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(1858175861) then  
 var = true  
-elseif tonumber(user_id) == tonumber(11110) then
+elseif tonumber(user_id) == tonumber(1632008076) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -204,7 +204,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1858175861) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(11110) then  
+elseif tonumber(user_id) == tonumber(1632008076) then  
 var = "مبرمج السورس"  
 elseif DevDevMaYore(user_id) == true then
 var = "المطور الاساسي"  
@@ -3243,7 +3243,7 @@ if result.id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(11110) then
+if result.id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3270,7 +3270,7 @@ if userid == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(11110) then
+if userid == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4167,7 +4167,7 @@ if result.sender_user_id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(111101100) then
+if result.sender_user_id_ == tonumber(16320080761100) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -4242,7 +4242,7 @@ return false
 end
 function Function_DevMaYor(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(11110) then
+if result.id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4306,7 +4306,7 @@ if userid == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(11110) then
+if userid == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4416,7 +4416,7 @@ if result.sender_user_id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(11110) then
+if result.sender_user_id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5197,7 +5197,7 @@ end,nil)
 send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
 if text == ("الميديا") and cleaner(msg) then  
-local gmria = database:scard(bot_id.."DevMaYor:allM"..msg.chat_id_)  
+local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
@@ -9312,7 +9312,7 @@ keyboard.inline_keyboard = {
 {text = '📁┇DevMaYor Files .',url="https://t.me/UUI33U"},
 },
 {
-{text = '📮 • Bot TwisL',url="t.me/U41bot"},
+{text = '📮 • Dev',url="t.me/KKPKK"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -13462,7 +13462,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","?? 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇ نسبة الرجوله لـ : *'..text..'*'
 keyboard = {} 
