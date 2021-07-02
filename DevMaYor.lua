@@ -5139,44 +5139,29 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."DevMaYor:allM"..msg.chat_id_, msg.id_)
 end
-if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then
-if database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
-local gmedia = database:scard(bot_id.."DevMaYor:allM"..msg.chat_id_)  
-if gmedia == 200 then
-local liste = database:smembers(bot_id.."DevMaYor:allM"..msg.chat_id_)
-for k,v in pairs(liste) do
-local Mesge = v
-if Mesge then
-t = "• تم مسح "..k.." من الوسائط تلقائيا\n• يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
-DeleteMessage(msg.chat_id_,{[0]=Mesge})
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
+database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
 end
+if text == ("امسح") and cleaner(msg) then  
+local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "✅┇تم حذف "..k.." من الوسائط"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."msg:media"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "💢┇لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
-database:del(bot_id.."DevMaYor:allM"..msg.chat_id_)
 end
+if text == ("عدد الميديا") and cleaner(msg) then  
+local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
 end
-end
-if text == "امسح" and Owner(msg) then
-msgm = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-msgm[i] = Message
-end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = msgm},function(arg,data)
-new = 0
-msgm2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and data.messages_[i].content_ and data.messages_[i].content_.ID ~= "MessageText" then
-msgm2[new] = data.messages_[i].id_
-new = new + 1
-end
-end
-DeleteMessage(msg.chat_id_,msgm2)
-end,nil)  
-send(msg.chat_id_, msg.id_,"تم تنظيف الميديا بنجاح •")
-end
-if text == "امسح" and Owner(msg) then
+if text == "امسح" and cleaner(msg) and GetSourseMember(msg) then   
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,200 do
@@ -5194,11 +5179,22 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
+send(msg.chat_id_, msg.id_,'📛┇تم حذف الميديا المعدلة ..')
 end
-if text == ("الميديا") and cleaner(msg) then  
-local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"• عدد الميديا الموجود هو (* "..gmria.." *)")
+if not database:get(bot_id.."y:DevMaYor:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
+if gmedia == 150 then
+local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
+for k,v in pairs(liste) do
+local Mesge = v
+if Mesge then
+t = "✅┇تم حذف *"..k..".* من الميديا ."
+DeleteMessage(msg.chat_id_,{[0]=Mesge})
+end
+end
+send(msg.chat_id_, msg.id_, t)
+database:del(bot_id.."msg:media"..msg.chat_id_)
+end
 end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -13462,7 +13458,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","?? 8","🙄 3","😕 6","🤯 0",};
+numj = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","?? 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnuj = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇ نسبة الرجوله لـ : *'..text..'*'
 keyboard = {} 
