@@ -71,7 +71,7 @@ RunDevMaYor:write([[
 cd $HOME/DevMaYor
 token="]]..database:get(Server_DevMaYor.."Token_DevMaYor")..[["
 rm -fr DevMaYor.lua
-wget "https://raw.githubusercontent.com/DevMaYor3/DevMaYor/master/DevMaYor.lua"
+wget "https://raw.githubusercontent.com/ALOMDATEAM/DevMaYor/master/DevMaYor.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./DevMaYor.lua -p PROFILE --bot=$token
