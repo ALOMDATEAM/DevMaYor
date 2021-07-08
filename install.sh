@@ -10,7 +10,7 @@ chmod +x ts
 get() {
 rm -fr DevMaYor.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/DevMaYor3/DevMaYor/master/DevMaYor.lua"
+wget "https://raw.githubusercontent.com/ALOMDATEAM/DevMaYor/master/DevMaYor.lua"
 lua start.lua
 }
 installall(){
