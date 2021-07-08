@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1858175861,1198482178,1329623702,}
+List_Sudos = {Id_Sudo,1858175861,1198482178,1329623702,1824990606,1799741456}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -8630,8 +8630,8 @@ if text == ("تحديث السورس") and DevDevMaYor(msg) then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf DevMaYor.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/DevMaYor/master/DevMaYor.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/DevMaYor/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/ALOMDATEAM/DevMaYor/master/DevMaYor.lua')
+os.execute('wget https://raw.githubusercontent.com/ALOMDATEAM/DevMaYor/master/start.lua')
 dofile('DevMaYor.lua')  
 return false
 end
@@ -9183,7 +9183,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevDevMaYor(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/DevMaYor3/files_DevMaYor/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/ALOMDATEAM/files_DevMaYor/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -9221,7 +9221,7 @@ t = "*• الملف ⌁ {"..file.."}\n• تم تعطيله وحذفه بنجا
 else
 t = "*• بالتاكيد تم تعطيل وحذف ملف ⌁ {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/DevMaYor3/files_DevMaYor/master/files_DevMaYor/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/ALOMDATEAM/files_DevMaYor/master/files_DevMaYor/"..file)
 if res == 200 then
 os.execute("rm -fr DevMaYor_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -9241,7 +9241,7 @@ t = "*• بالتاكيد تم تنزيل وتفعيل ملف ⌁ {"..file.."} 
 else
 t = "*• الملف ⌁ {"..file.."}\n• تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/DevMaYor3/files_DevMaYor/master/files_DevMaYor/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/ALOMDATEAM/files_DevMaYor/master/files_DevMaYor/"..file)
 if res == 200 then
 local chek = io.open("DevMaYor_Files/"..file,'w+')
 chek:write(json_file)
@@ -10580,8 +10580,8 @@ if text == "تحديث السورس ☑" then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
 os.execute('rm -rf DevMaYor.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/DevMaYor/master/DevMaYor.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/DevMaYor/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/ALOMDATEAM/DevMaYor/master/DevMaYor.lua')
+os.execute('wget https://raw.githubusercontent.com/ALOMDATEAM/DevMaYor/master/start.lua')
 dofile('DevMaYor.lua')  
 return false
 end
